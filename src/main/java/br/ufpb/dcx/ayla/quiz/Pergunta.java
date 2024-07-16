@@ -1,6 +1,6 @@
 package br.ufpb.dcx.ayla.quiz;
 
-public abstract class Pergunta {
+public abstract class Pergunta implements Comparable<Pergunta> {
     private String enunciado;
     private String respostaCorreta;
 
@@ -11,6 +11,10 @@ public abstract class Pergunta {
 
     public Pergunta(){
         this("","");
+    }
+
+    public int compareTo(Pergunta pergunta2){
+        return this.enunciado.compareTo(pergunta2.enunciado);
     }
 
 
