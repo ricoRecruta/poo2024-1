@@ -15,7 +15,7 @@ public class SistemaFeiraArtesanatoRioTinto implements SistemaFeiraArtesanato{
 
     @Override
     public void cadastraItem(ItemDeArtesanato item) throws CodigoInvalidoException,ItemJaExisteException{
-        this.itensDeArtesanato.put(item.getCodigo(),item);
+
         if(itensDeArtesanato.containsKey(item.getCodigo())){
             throw new ItemJaExisteException("Ja existe item com o código"+item.getCodigo());
         } else{
