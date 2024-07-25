@@ -31,7 +31,7 @@ public class ProgramaArtesanatoRioTinto {
                         JOptionPane.showMessageDialog(null,e.getMessage());
                         e.printStackTrace();
                     }
-                    //vai
+                    //vai agora
 
                 }
 
