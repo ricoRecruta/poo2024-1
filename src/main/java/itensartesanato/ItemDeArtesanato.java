@@ -1,8 +1,9 @@
 package itensartesanato;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class ItemDeArtesanato  implements Comparable<ItemDeArtesanato> {
+public abstract class ItemDeArtesanato  implements Comparable<ItemDeArtesanato>, Serializable {
     private String codigo;
     private String nome;
     private double preco;

@@ -1,12 +1,16 @@
 package itensartesanato;
 
+
+import javax.imageio.IIOException;
 import javax.swing.*;
+import java.io.IOException;
 import java.util.List;
 
 public class ProgramaArtesanatoRioTinto {
     public static void main(String[] args) {
         boolean continuar = true;
-        SistemaFeiraArtesanato sistema = new SistemaFeiraArtesanatoRioTinto();
+        SistemaFeiraArtesanatoRioTinto sistema = new SistemaFeiraArtesanatoRioTinto();
+        sistema.recuperaItensDeArtesanato();
 
         while(continuar){
             String opcao = JOptionPane.showInputDialog("Digite uma opção\n 1.Cadastrar item\n 2.Pesquisar item pelo nome\n 3.pesquisar item pelo codigo\n 4.Sair ");
@@ -63,6 +67,9 @@ public class ProgramaArtesanatoRioTinto {
                 continuar = false;
                 JOptionPane.showMessageDialog(null,"Saindo do sitema");
             }
+
         }
+        sistema.gravarItensDeArtesanato();
+
     }
 }

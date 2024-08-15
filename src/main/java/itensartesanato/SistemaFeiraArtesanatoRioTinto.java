@@ -1,5 +1,8 @@
 package itensartesanato;
 
+import gravador.Gravador;
+
+import java.io.IOException;
 import java.util.*;
 
 public class SistemaFeiraArtesanatoRioTinto implements SistemaFeiraArtesanato{
@@ -7,6 +10,7 @@ public class SistemaFeiraArtesanatoRioTinto implements SistemaFeiraArtesanato{
     private Map<String,ItemDeArtesanato> itensDeArtesanato;
 
     public static final String PREFIXO_CODIGO = "COD";
+    Gravador gravador = new Gravador();
 
     public SistemaFeiraArtesanatoRioTinto(){
         this.itensDeArtesanato = new HashMap<>();
@@ -62,6 +66,25 @@ public class SistemaFeiraArtesanatoRioTinto implements SistemaFeiraArtesanato{
         } else {
             return item;
         }
+
+    }
+
+    public void gravarItensDeArtesanato()  {
+        try {
+            gravador.salvarItensDeArtesantos(this.itensDeArtesanato);
+        } catch(IOException e){
+            System.err.println(e);
+        }
+    }
+
+    public void recuperaItensDeArtesanato(){
+        try {
+            gravador.recuperaItensDeArtesanato();
+        } catch(IOException e){
+            System.err.println(e);
+            this.itensDeArtesanato = new HashMap<>();
+        }
+
 
     }
 }
