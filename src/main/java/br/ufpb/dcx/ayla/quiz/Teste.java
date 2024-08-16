@@ -1,27 +1,41 @@
 package br.ufpb.dcx.ayla.quiz;
 
+import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
+
 public class Teste {
     public static void main(String[] args) {
-        Pergunta pergunta = new PerguntaDissertativa();
-        System.out.println(pergunta.toString());
+        SistemaQuizAyla sistema = new SistemaQuizAyla();
+        sistema.recuperaArquivo();
 
-        Pergunta pergunta2 = new PerguntaDissertativa("Quem descobriu o Brasil ? ", "4");
-        Pergunta pergunta3 = new PerguntaDissertativa("Quanto é 1 + 1 ? ", "2");
 
-        List<Pergunta> perguntaList = new Vector();
 
-        perguntaList.add(pergunta);
-        perguntaList.add(pergunta2);
-        perguntaList.add(pergunta3);
+        boolean continuar = true;
 
-        Collections.sort(perguntaList);
+        while (continuar) {
+            String j = JOptionPane.showInputDialog("Digite S ou N");
+            switch (j) {
+                case "S":
+                    JOptionPane.showMessageDialog(null, "Cadastre uma pergunta");
+                    String enunciado = JOptionPane.showInputDialog("Digite o enunciado da questão");
+                    Pergunta per = new PerguntaDissertativa(enunciado, "Sem resposta");
+                    sistema.cadastraPergunta(per);
+                    for(Pergunta p: sistema.getTodasAsPerguntas()){
+                        System.out.println(p.getEnunciado());
+                    }
 
-        for(Pergunta p: perguntaList){
-            System.out.println(p.getEnunciado());
+                    break;
+                case "N":
+                    continuar = false;
+                    break;
+            }
         }
+
+
+        sistema.gravarArquivo();
 
     }
 

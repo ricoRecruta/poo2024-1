@@ -1,6 +1,8 @@
 package br.ufpb.dcx.ayla.quiz;
 
-public abstract class Pergunta implements Comparable<Pergunta> {
+import java.io.Serializable;
+
+public abstract class Pergunta implements Comparable<Pergunta>, Serializable {
     private String enunciado;
     private String respostaCorreta;
 

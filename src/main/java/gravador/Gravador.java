@@ -1,8 +1,10 @@
 package gravador;
 
+import br.ufpb.dcx.ayla.quiz.Pergunta;
 import itensartesanato.ItemDeArtesanato;
 
 import java.io.*;
+import java.util.List;
 import java.util.Map;
 
 public class Gravador {
@@ -26,5 +28,21 @@ public class Gravador {
             throw new IOException(e);
         }
 
+    }
+
+    public List<Pergunta> recuperaListaDePerguntas() throws IOException{
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(ARQUIVO_QUIZ))){
+            return (List<Pergunta>) in.readObject();
+        }catch(ClassNotFoundException e){
+            throw new IOException(e);
+        }
+    }
+
+    public void gravarListaDePerguntas(List<Pergunta> lista) throws IOException{
+        try(ObjectOutputStream in = new ObjectOutputStream(new FileOutputStream(ARQUIVO_QUIZ))){
+            in.writeObject(lista);
+        }catch(IOException e){
+            throw new IOException(e);
+        }
     }
 }

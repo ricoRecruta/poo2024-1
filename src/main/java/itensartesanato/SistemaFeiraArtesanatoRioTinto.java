@@ -79,7 +79,7 @@ public class SistemaFeiraArtesanatoRioTinto implements SistemaFeiraArtesanato{
 
     public void recuperaItensDeArtesanato(){
         try {
-            gravador.recuperaItensDeArtesanato();
+            this.itensDeArtesanato =gravador.recuperaItensDeArtesanato();
         } catch(IOException e){
             System.err.println(e);
             this.itensDeArtesanato = new HashMap<>();
