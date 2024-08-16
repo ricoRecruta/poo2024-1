@@ -19,8 +19,9 @@ public class ProgramaArtesanatoRioTinto {
                 //Cadastrar
 
                 String tipoDeItem = JOptionPane.showInputDialog("Qual o tipo de item \n 1. roupa \n");
-                String tamanho = JOptionPane.showInputDialog("Qual o tamanho da Roupa");
+
                 if(tipoDeItem.equals("1")){
+                    String tamanho = JOptionPane.showInputDialog("Qual o tamanho da Roupa");
                     String codigo = JOptionPane.showInputDialog("Qual o código");
                     String nome = JOptionPane.showInputDialog("Qual o nome? ");
                     Double preco = Double.parseDouble(JOptionPane.showInputDialog("Qual o preco"));
